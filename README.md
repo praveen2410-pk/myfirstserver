@@ -35,6 +35,7 @@ sh
 Copy
 Edit
 jmeter -n -t test-plan.jmx -l results.jtl
+![simple architecture](https://github.com/praveen2410-pk/myfirstserver/blob/main/Jmeter_sample_testplan.png)
 Analyze results in InfluxDB and Grafana.
 📊 Monitoring Stack
 Prometheus: Collects API metrics.
