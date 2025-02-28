@@ -4,7 +4,8 @@
 This project demonstrates the deployment of a **Node.js API Server** on **Oracle Cloud** with **Prometheus** and **Grafana** for monitoring, and **JMeter** for performance testing.
 
 ## 🏗️ Architecture Diagram
-![Architecture](path/to/your/image.png)
+![simple architecture](https://github.com/user-attachments/assets/312a653f-014b-460b-95e3-5da36564d2f5)
+
 
 ## 🚀 Deployment Steps
 ### 1️⃣ **Setup Oracle Cloud VM**
