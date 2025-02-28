@@ -1,114 +1,87 @@
-README.md File:
-md
-Copy
-Edit
-# Express.js REST API Deployment on Oracle Free Tier VM
+Node.js API Performance Testing & Monitoring on Oracle Cloud
 
-## Overview
-This project demonstrates how to deploy a simple Express.js REST API on an Oracle Free Tier VM and test it using JMeter.
+Overview
 
-## Features
-- 🌐 **Endpoints**
-  - `GET /` → Returns a basic welcome message.
-  - `GET /api/data` → Returns sample JSON data with a timestamp.
-  - `GET /api/data2` → Returns a success message with an ISO timestamp.
-- 🚀 **Deployment**
-  - Hosted on an Oracle Free Tier VM with Ubuntu.
-  - Accessible via public IP and configured with firewall rules.
-- ⚡ **Performance Testing**
-  - API tested using JMeter.
+This project deploys a Node.js API Server on Oracle Cloud with monitoring using Prometheus & Grafana. Performance testing is conducted using Apache JMeter, and metrics are stored in InfluxDB Cloud.
 
----
-
-## 🚀 **Setup & Installation**
-### 1️⃣ **Install Node.js & Express.js**
-```sh
-sudo dnf install nodejs -y   # (For Oracle Linux)
-node -v                      # Check Node.js version
-npm -v                       # Check npm version
-2️⃣ Create Express.js App
-sh
-Copy
-Edit
-mkdir express-api && cd express-api
-npm init -y
-npm install express
-3️⃣ Create index.js
-javascript
-Copy
-Edit
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.get('/', (req, res) => {
-    res.send('Hello, World! This is your Express.js REST API.');
-});
-
-app.get('/api/data', (req, res) => {
-    res.json({ message: 'This is sample API data', timestamp: new Date() });
-});
-
-app.get('/api/data2', (req, res) => {
-    res.json({
-        message: "Welcome to my Express API!",
-        status: "Success",
-        time: new Date().toISOString()
-    });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://0.0.0.0:${port}`);
-});
-4️⃣ Run the Server
-sh
-Copy
-Edit
-node index.js   # Start the server
-OR run in the background:nohup node index.js > output.log 2>&1 &
+Architecture Diagram
 
 
-sh
-Copy
-Edit
-nohup node index.js &
-🔥 Allow External Access
-1️⃣ Check if Server is Running
-sh
-Copy
-Edit
-ss -tlnp | grep 3000
-Expected Output:
 
-nginx
-Copy
-Edit
-LISTEN  0  511  0.0.0.0:3000  0.0.0.0:*  users:(("node",pid,fd))
-2️⃣ Open Port 3000 in Firewall
-sh
-Copy
-Edit
-sudo firewall-cmd --permanent --add-port=3000/tcp
-sudo firewall-cmd --reload
-3️⃣ Allow Port 3000 in Oracle Cloud Security Rules
-Go to Oracle Cloud Console.
-Navigate to Compute > Instances.
-Click on your instance and open Virtual Cloud Network (VCN).
-Click Subnet > Security List.
-Add an Ingress Rule:
-Protocol: TCP
-Port Range: 3000
-Source CIDR: 0.0.0.0/0 (for public access)
-Save the rule.
-🔍 Test the API
-1️⃣ From a Web Browser
-http://your-server-ip:3000/
-http://your-server-ip:3000/api/data
-http://your-server-ip:3000/api/data2
-2️⃣ From cURL
-sh
-Copy
-Edit
-curl http://your-server-ip:3000/api/data
-3️⃣ Using JMeter
-Load test using JMeter by sending requests to /api/data.
+Tech Stack
+
+Oracle Cloud – VM Instances & Load Balancer
+
+Node.js – API Server
+
+Prometheus – Metrics Collection
+
+Grafana Cloud – Monitoring & Visualization
+
+Apache JMeter – Performance Testing
+
+InfluxDB Cloud – Metrics Storage
+
+Linux (Ubuntu) – VM OS
+
+Setup Instructions
+
+1. Deploy Node.js API Server
+
+# Install Node.js
+sudo apt update && sudo apt install -y nodejs npm
+
+# Clone the repository
+git clone https://github.com/your-repo.git && cd your-repo
+
+# Install dependencies
+npm install
+
+# Start the server
+node server.js
+
+2. Install & Configure Prometheus
+
+# Install Prometheus
+sudo apt update && sudo apt install -y prometheus
+
+# Edit Prometheus config
+sudo nano /etc/prometheus/prometheus.yml
+# Add scrape job for Node.js API
+
+3. Set Up Grafana Cloud
+
+Sign up for Grafana Cloud
+
+Add InfluxDB as a data source
+
+Create dashboards for monitoring
+
+4. Load Testing with JMeter
+
+# Run JMeter tests
+jmeter -n -t test-plan.jmx -l results.jtl
+
+Monitoring
+
+Prometheus scrapes metrics from Node.js API.
+
+InfluxDB stores JMeter test results.
+
+Grafana visualizes system performance.
+
+Contributing
+
+Fork the repository
+
+Create a feature branch (git checkout -b feature-name)
+
+Commit changes (git commit -m 'Add feature')
+
+Push to branch (git push origin feature-name)
+
+Open a Pull Request
+
+License
+
+MIT License © 2025 Your Name
