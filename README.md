@@ -23,13 +23,13 @@ sh
 Copy
 Edit
 pm2 start server.js
-3️⃣ Configure Load Balancer
+### 3️⃣ **Configure Load Balancer**
 Set up an Oracle Load Balancer to distribute traffic between the instances.
-4️⃣ Monitoring with Prometheus & Grafana
+### 4️⃣ **Monitoring with Prometheus & Grafana**
 Install Prometheus on each instance.
 Configure Prometheus to scrape Node.js API metrics.
 Send Prometheus data to Grafana Cloud for visualization.
-5️⃣ Performance Testing with JMeter
+### 5️⃣ **Performance Testing with JMeter**
 Run a JMeter test:
 sh
 Copy
