@@ -95,7 +95,7 @@ Now, Prometheus will send data to Grafana Cloud for visualization.
 ### 6️⃣ **Analyze Results in Grafana Cloud**
 
 1. **Oracle Infra Monitoring** - Monitor VM health ([Grafana OCI Plugin](https://grafana.com/grafana/plugins/oci-metrics-datasource/))
-2. **Prometheus Dashboard** - Monitor VM CPU, Memory, and other metrics
+2. **Prometheus Dashboard** - Monitor VM CPU, Memory and other metrics ([*Prometheus Dashboard]https://grafana.com/grafana/dashboards/3662-prometheus-2-0-overview/)
 3. **Node.js API Monitoring** - Track API performance
 4. **JMeter Load Testing Dashboard** - ([Grafana JMeter Dashboard](https://grafana.com/grafana/dashboards/13644-jmeter-load-test-org-md-jmeter-influxdb2-visualizer-influxdb-v2-0-flux/))
 
